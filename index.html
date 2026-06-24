@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pramukh KS | Wealth Management Technology | CFA Charterholder</title>
+<meta name="description" content="Pramukh KS — CFA Charterholder and wealth management technology professional. Implementation Manager at Eton Solutions LP, leading UHNW family office platform implementations, portfolio performance reporting, and financial operations.">
+<meta property="og:title" content="Pramukh KS | Wealth Management Technology | CFA Charterholder">
+<meta property="og:description" content="CFA Charterholder building the bridge between finance, operations, and enterprise technology — leading wealth management platform implementations for UHNW family offices.">
+<meta property="og:type" content="profile">
+<style>
+  :root{
+    --ink:#12182a;
+    --navy:#16233f;
+    --navy-deep:#0c1322;
+    --gold:#8a6d2f;
+    --gold-soft:rgba(138,109,47,0.14);
+    --bg:#faf9f6;
+    --bg-alt:#f3f0ea;
+    --glass:rgba(255,254,250,0.62);
+    --glass-strong:rgba(255,254,250,0.8);
+    --border:rgba(18,24,42,0.1);
+    --text:#161c2c;
+    --text-dim:#5a5f6e;
+    --text-faint:#8a8d99;
+    --shadow-sm:0 8px 26px -14px rgba(18,24,42,0.16);
+    --shadow-md:0 22px 54px -20px rgba(18,24,42,0.2);
+    --shadow-lg:0 32px 80px -24px rgba(18,24,42,0.22);
+    --font-serif: 'Iowan Old Style','Palatino Linotype','Book Antiqua', Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont,'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 12% 8%, rgba(138,109,47,0.06), transparent 38%),
+      radial-gradient(circle at 88% 22%, rgba(22,35,63,0.05), transparent 42%),
+      radial-gradient(circle at 50% 90%, rgba(138,109,47,0.04), transparent 48%),
+      linear-gradient(180deg,#fbfaf7 0%, #f3f0ea 100%);
+    color:var(--text);
+    font-family:var(--font-sans);
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  .noise{
+    position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.025;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode:overlay;
+  }
+
+  .scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold);z-index:300;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    background:rgba(250,249,246,0.7);
+    backdrop-filter:blur(16px) saturate(140%);
+    border-bottom:1px solid var(--border);
+    padding:20px 44px;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:box-shadow .4s ease, background .4s ease;
+  }
+  nav.scrolled{box-shadow:0 6px 24px -16px rgba(18,24,42,0.16);background:rgba(250,249,246,0.86);}
+  .logo{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--navy);letter-spacing:0.02em;}
+  .navlinks{display:flex;gap:20px;}
+  .navlinks a{
+    font-size:11.5px;color:var(--text-dim);font-weight:600;letter-spacing:0.03em;text-transform:uppercase;
+    position:relative;padding-bottom:4px;transition:color .4s;white-space:nowrap;
+  }
+  .navlinks a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);
+    transition:width .4s ease;
+  }
+  .navlinks a:hover,.navlinks a.active{color:var(--navy);}
+  .navlinks a:hover::after,.navlinks a.active::after{width:100%;}
+  .navtoggle{display:none;background:none;border:none;font-size:21px;color:var(--navy);cursor:pointer;}
+  @media(max-width:980px){
+    .navlinks{
+      position:fixed;top:68px;left:0;right:0;background:rgba(250,249,246,0.98);
+      flex-direction:column;padding:26px 44px;gap:20px;
+      transform:translateY(-120%);transition:transform .4s ease;border-bottom:1px solid var(--border);
+    }
+    .navlinks.open{transform:translateY(0);}
+    .navtoggle{display:block;}
+  }
+
+  section{padding:130px 44px 60px;max-width:1160px;margin:0 auto;position:relative;}
+  .eyebrow{
+    font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;
+    color:var(--gold);margin-bottom:18px;
+  }
+  .center{text-align:center;}
+  h2{font-family:var(--font-serif);font-size:36px;font-weight:600;letter-spacing:0;margin-bottom:16px;color:var(--navy);}
+  .reveal-rule{width:0;height:1px;background:var(--gold);margin:0 0 34px;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+  .reveal-rule.visible{width:56px;}
+  .reveal-rule.center-rule{margin-left:auto;margin-right:auto;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 1.1s cubic-bezier(.4,0,.2,1), transform 1.1s cubic-bezier(.4,0,.2,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  .btn{
+    padding:14px 30px;border-radius:8px;font-size:13px;font-weight:600;letter-spacing:0.04em;
+    text-transform:uppercase;cursor:pointer;display:inline-block;transition:all .4s cubic-bezier(.4,0,.2,1);
+  }
+  .btn-primary{background:var(--navy);color:#fbfaf7;box-shadow:var(--shadow-sm);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);background:var(--navy-deep);}
+  .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--border);}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:var(--shadow-sm);}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;padding:150px 44px 60px;max-width:none;}
+  .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0;}
+  .glow{position:absolute;border-radius:50%;filter:blur(80px);animation:breathe 14s ease-in-out infinite;}
+  .glow1{width:440px;height:440px;background:radial-gradient(circle,rgba(138,109,47,0.16),transparent 70%);top:-110px;left:-90px;}
+  .glow2{width:400px;height:400px;background:radial-gradient(circle,rgba(22,35,63,0.12),transparent 70%);top:34%;right:-110px;animation-delay:3s;}
+  @keyframes breathe{0%,100%{opacity:0.55;}50%{opacity:0.85;}}
+
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 0.9fr;gap:36px;
+    max-width:1160px;margin:0 auto;width:100%;align-items:center;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+
+  .hero-left h1{font-family:var(--font-serif);font-size:clamp(40px,6vw,62px);font-weight:600;
+    color:var(--navy);line-height:1.08;margin-bottom:14px;letter-spacing:0;}
+  .hero-tagline{font-family:var(--font-serif);font-size:clamp(17px,2.1vw,21px);font-weight:600;
+    color:var(--navy);line-height:1.45;margin-bottom:18px;max-width:480px;}
+  .hero-sub{font-size:17px;color:var(--text);max-width:500px;line-height:1.6;margin-bottom:16px;font-weight:500;}
+  .hero-value{font-size:14.5px;color:var(--text-dim);max-width:500px;line-height:1.8;margin-bottom:38px;}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .hero-right{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .frame-wrap{position:relative;width:320px;}
+  .portrait-frame{
+    position:relative;width:320px;height:390px;border-radius:14px;
+    background:var(--glass-strong);border:1px solid var(--border);
+    box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;
+    backdrop-filter:blur(14px);overflow:hidden;
+  }
+  .portrait-frame::before{
+    content:'';position:absolute;inset:12px;border:1px solid var(--gold-soft);border-radius:10px;z-index:2;
+  }
+  .portrait-frame::after{
+    content:'';position:absolute;inset:0;opacity:0.05;
+    background-image:radial-gradient(circle, var(--navy) 1px, transparent 1.4px);
+    background-size:18px 18px;
+  }
+  .frame-corner{position:absolute;width:24px;height:24px;border-color:var(--gold);opacity:0.55;z-index:3;}
+  .corner-tl{top:-9px;left:-9px;border-top:1px solid var(--gold);border-left:1px solid var(--gold);}
+  .corner-br{bottom:-9px;right:-9px;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold);}
+  .portrait-silhouette{color:var(--navy);opacity:0.55;position:relative;z-index:2;}
+  .portrait-photo{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;border-radius:14px;}
+  .frame-side-label{
+    position:absolute;top:50%;right:-64px;transform:translateY(-50%) rotate(90deg);transform-origin:center;
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-faint);white-space:nowrap;
+  }
+  @media(max-width:1050px){.frame-side-label{display:none;}}
+  .frame-caption{
+    margin-top:22px;text-align:center;font-size:12.5px;letter-spacing:0.06em;color:var(--text-dim);
+    border:1px solid var(--border);padding:10px 20px;border-radius:16px;background:var(--glass);line-height:1.7;
+  }
+  .frame-caption strong{color:var(--navy);font-weight:700;}
+
+  /* ABOUT */
+  .glass-container{
+    background:var(--glass);backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid var(--border);border-radius:18px;padding:56px;box-shadow:var(--shadow-md);
+  }
+  @media(max-width:600px){.glass-container{padding:32px 24px;}}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{color:var(--text-dim);line-height:1.9;margin-bottom:18px;font-size:15.5px;}
+  .quick-facts{display:flex;flex-direction:column;gap:13px;}
+  .fact-card{
+    background:rgba(255,254,250,0.6);border:1px solid var(--border);border-radius:10px;
+    padding:17px 22px;transition:border-color .4s, box-shadow .4s, opacity 1.1s cubic-bezier(.4,0,.2,1), transform 1.1s cubic-bezier(.4,0,.2,1);
+  }
+  .fact-card:hover{border-color:var(--gold-soft);box-shadow:var(--shadow-sm);}
+  .quick-facts .fact-card:nth-child(1){transition-delay:0s;}
+  .quick-facts .fact-card:nth-child(2){transition-delay:.06s;}
+  .quick-facts .fact-card:nth-child(3){transition-delay:.12s;}
+  .quick-facts .fact-card:nth-child(4){transition-delay:.18s;}
+  .quick-facts .fact-card:nth-child(5){transition-delay:.24s;}
+  .fact-label{font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-faint);font-weight:700;margin-bottom:6px;}
+  .fact-value{font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--navy);}
+
+  /* IMPACT STATS */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.stat-grid{grid-template-columns:1fr;}}
+  .stat-card{
+    background:var(--glass-strong);border:1px solid var(--border);border-radius:14px;
+    padding:34px 24px;text-align:center;box-shadow:var(--shadow-sm);backdrop-filter:blur(12px);
+    transition:opacity 1.1s cubic-bezier(.4,0,.2,1), transform 1.1s cubic-bezier(.4,0,.2,1), border-color .4s, box-shadow .4s;
+  }
+  .stat-card:hover{transform:translateY(-5px) !important;box-shadow:var(--shadow-md);border-color:var(--gold-soft);}
+  .stat-grid .stat-card:nth-child(1){transition-delay:0s;}
+  .stat-grid .stat-card:nth-child(2){transition-delay:.08s;}
+  .stat-grid .stat-card:nth-child(3){transition-delay:.16s;}
+  .stat-grid .stat-card:nth-child(4){transition-delay:.24s;}
+  .stat-number{font-family:var(--font-serif);font-size:38px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .stat-label{font-size:12.5px;color:var(--text-dim);line-height:1.5;letter-spacing:0.01em;}
+
+  /* EXPERIENCE — TIMELINE */
+  .timeline{position:relative;}
+  .timeline-line{
+    position:absolute;left:8px;top:2px;width:1px;height:0;
+    background:linear-gradient(180deg, var(--gold), var(--border));
+    transition:height 1.8s cubic-bezier(.4,0,.2,1);
+  }
+  .timeline-line.visible{height:calc(100% - 4px);}
+  .timeline-item{position:relative;padding-left:46px;padding-bottom:44px;}
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-dot{
+    position:absolute;left:2px;top:3px;width:13px;height:13px;border-radius:50%;
+    background:var(--bg);border:1.5px solid var(--gold-soft);
+    transition:background .7s ease, border-color .7s ease;
+  }
+  .timeline-item.visible .timeline-dot{border-color:var(--gold);background:var(--gold);}
+  .exp-period{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px;}
+  .exp-role{font-family:var(--font-serif);font-size:19px;font-weight:600;color:var(--navy);margin-bottom:4px;transition:color .4s;}
+  .timeline-item:hover .exp-role{color:var(--gold);}
+  .exp-company{font-size:13px;color:var(--text-faint);font-weight:600;margin-bottom:12px;}
+  .exp-desc{font-size:14px;color:var(--text-dim);line-height:1.75;max-width:620px;}
+
+  /* EXPERTISE / AWARDS shared grid */
+  .card-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.card-grid3{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.card-grid3{grid-template-columns:1fr;}}
+  .xcard{
+    background:var(--glass-strong);border:1px solid var(--border);border-radius:14px;
+    padding:30px 26px;box-shadow:var(--shadow-sm);
+    transition:opacity 1.1s cubic-bezier(.4,0,.2,1), transform 1.1s cubic-bezier(.4,0,.2,1), border-color .4s, box-shadow .4s;
+    backdrop-filter:blur(12px);
+  }
+  .xcard:hover{transform:translateY(-5px) !important;box-shadow:var(--shadow-md);border-color:var(--gold-soft);}
+  .card-grid3 .xcard:nth-child(1){transition-delay:0s;}
+  .card-grid3 .xcard:nth-child(2){transition-delay:.07s;}
+  .card-grid3 .xcard:nth-child(3){transition-delay:.14s;}
+  .card-grid3 .xcard:nth-child(4){transition-delay:.21s;}
+  .card-grid3 .xcard:nth-child(5){transition-delay:.28s;}
+  .card-grid3 .xcard:nth-child(6){transition-delay:.35s;}
+  .xcard .icon-box{
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--navy);
+    transition:all .4s cubic-bezier(.4,0,.2,1);
+  }
+  .xcard:hover .icon-box{border-color:var(--gold);color:var(--gold);}
+  .xcard h3{font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .xcard p{font-size:13.5px;color:var(--text-dim);line-height:1.7;}
+  .award-year{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .award-issuer{font-size:12.5px;color:var(--text-faint);font-weight:600;margin-bottom:12px;}
+
+  /* EDUCATION */
+  .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:560px;margin:0 auto;}
+  @media(max-width:500px){.cert-grid{grid-template-columns:1fr;}}
+  .cert-badge{
+    background:var(--glass-strong);border:1px solid var(--border);border-radius:12px;
+    padding:30px 18px;text-align:center;box-shadow:var(--shadow-sm);backdrop-filter:blur(12px);
+    transition:opacity 1.1s cubic-bezier(.4,0,.2,1), transform 1.1s cubic-bezier(.4,0,.2,1), border-color .4s, box-shadow .4s;
+  }
+  .cert-badge:hover{transform:translateY(-4px) !important;box-shadow:var(--shadow-md);border-color:var(--gold-soft);}
+  .cert-grid .cert-badge:nth-child(1){transition-delay:0s;}
+  .cert-grid .cert-badge:nth-child(2){transition-delay:.08s;}
+  .cert-badge .badge-icon{
+    width:48px;height:48px;border-radius:50%;border:1px solid var(--border);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
+  }
+  .cert-name{font-family:var(--font-serif);font-size:15.5px;font-weight:600;color:var(--navy);margin-bottom:5px;}
+  .cert-status{font-size:11px;color:var(--text-faint);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;}
+  .cert-detail{font-size:11.5px;color:var(--text-dim);margin-top:10px;line-height:1.6;}
+
+  /* HOBBIES */
+  .hobby-tags{display:flex;flex-wrap:wrap;gap:14px;}
+  .hobby-tag{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:11px 22px;border:1px solid var(--border);border-radius:30px;
+    background:var(--glass-strong);font-size:13.5px;color:var(--navy);font-weight:600;
+    letter-spacing:0.02em;transition:all .4s cubic-bezier(.4,0,.2,1);
+  }
+  .hobby-tag svg{color:var(--navy);transition:color .4s ease;flex-shrink:0;}
+  .hobby-tag:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+  .hobby-tag:hover svg{color:var(--gold);}
+  .hobby-tags .hobby-tag:nth-child(1){transition-delay:0s;}
+  .hobby-tags .hobby-tag:nth-child(2){transition-delay:.05s;}
+  .hobby-tags .hobby-tag:nth-child(3){transition-delay:.1s;}
+  .hobby-tags .hobby-tag:nth-child(4){transition-delay:.15s;}
+  .hobby-tags .hobby-tag:nth-child(5){transition-delay:.2s;}
+  .hobby-tags .hobby-tag:nth-child(6){transition-delay:.25s;}
+
+  /* RESUME */
+  .resume-panel{
+    background:var(--glass);backdrop-filter:blur(18px) saturate(140%);border:1px solid var(--border);
+    border-radius:18px;padding:50px;box-shadow:var(--shadow-md);
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:50px;align-items:center;
+  }
+  @media(max-width:800px){.resume-panel{grid-template-columns:1fr;padding:34px 26px;}}
+  .resume-mock{
+    background:#fffefb;border-radius:10px;box-shadow:var(--shadow-md);padding:26px;
+    border:1px solid var(--border);
+  }
+  .resume-mock .rm-name{font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+  .resume-mock .rm-title{font-size:10.5px;color:var(--text-faint);margin-bottom:18px;letter-spacing:0.04em;}
+  .rm-line{height:6px;border-radius:2px;background:var(--bg-alt);margin-bottom:9px;}
+  .rm-line.short{width:55%;}
+  .rm-line.accent{background:var(--gold);opacity:0.6;width:30%;height:3px;margin:14px 0 10px;}
+  .resume-text h3{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--navy);margin-bottom:14px;}
+  .resume-text p{font-size:14.5px;color:var(--text-dim);line-height:1.8;margin-bottom:26px;}
+
+  /* CONTACT */
+  #contact-section{position:relative;text-align:center;padding-bottom:120px;}
+  .contact-bg{
+    position:absolute;inset:0;border-radius:24px;
+    background:linear-gradient(135deg, rgba(22,35,63,0.04), rgba(138,109,47,0.06));
+    z-index:0;
+  }
+  .contact-particles{position:absolute;inset:0;z-index:0;border-radius:24px;overflow:hidden;}
+  .contact-inner{position:relative;z-index:1;padding:90px 40px;}
+  .contact-inner p{color:var(--text-dim);max-width:480px;margin:0 auto 20px;line-height:1.8;font-size:15.5px;}
+  .contact-direct{font-size:14.5px;color:var(--navy);font-weight:700;letter-spacing:0.02em;margin-bottom:30px;}
+  .contact-phone{white-space:nowrap;}
+  .contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  footer{text-align:center;padding:30px;color:var(--text-faint);font-size:12px;border-top:1px solid var(--border);letter-spacing:0.04em;}
+
+  /* SMALL PHONE FIXES */
+  @media(max-width:520px){
+    section{padding:100px 24px 50px;}
+    #hero{padding:130px 24px 50px;}
+    nav{padding:18px 24px;}
+    .navlinks{padding:26px 24px;}
+    .portrait-frame{width:230px;height:290px;}
+    .frame-wrap{width:230px;}
+    .portrait-silhouette{width:84px;height:84px;}
+    .frame-corner{width:18px;height:18px;}
+    .hero-btns,.contact-links{flex-direction:column;align-items:stretch;}
+    .hero-btns .btn,.contact-links .btn{width:100%;text-align:center;}
+    .hobby-tags{flex-direction:column;}
+    .hobby-tag{width:100%;justify-content:center;}
+    .contact-direct{display:flex;flex-direction:column;gap:6px;align-items:center;}
+    .contact-sep{display:none;}
+  }
+
+  #printResume{display:none;}
+  @media print{
+    body > *:not(#printResume){display:none !important;}
+    .noise,.scroll-progress{display:none !important;}
+    #printResume{display:block !important;padding:20px 10px;font-family:Georgia,'Times New Roman',serif;color:#111;max-width:800px;margin:0 auto;}
+    #printResume h1{font-size:23px;margin-bottom:4px;color:#111;}
+    #printResume .pr-contact{font-size:11.5px;color:#333;margin-bottom:16px;}
+    #printResume h2{font-size:13.5px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #333;padding-bottom:4px;margin:18px 0 8px;color:#16233f;}
+    #printResume .pr-role{font-weight:700;font-size:13px;margin-top:10px;}
+    #printResume .pr-meta{font-size:11px;color:#555;margin-bottom:5px;}
+    #printResume ul{margin:0 0 6px 16px;padding:0;font-size:11.5px;line-height:1.55;}
+    #printResume p{font-size:11.5px;line-height:1.6;margin-bottom:8px;}
+    #printResume .pr-skills{font-size:11.5px;line-height:1.8;}
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav id="mainNav">
+  <div class="logo">Pramukh KS</div>
+  <button class="navtoggle" id="navToggle">☰</button>
+  <div class="navlinks" id="navLinks">
+    <a href="#about" class="nlink">About</a>
+    <a href="#impact" class="nlink">Impact</a>
+    <a href="#experience" class="nlink">Experience</a>
+    <a href="#expertise" class="nlink">Expertise</a>
+    <a href="#education" class="nlink">Education</a>
+    <a href="#resume" class="nlink">Resume</a>
+    <a href="#awards" class="nlink">Awards</a>
+    <a href="#hobbies" class="nlink">Hobbies</a>
+    <a href="#contact-section" class="nlink">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg" id="heroBg">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-left reveal">
+      <div class="eyebrow">Wealth Management Technology &amp; UHNW Client Servicing</div>
+      <h1>Pramukh KS</h1>
+      <p class="hero-tagline">Building the bridge between finance, operations, and enterprise technology.</p>
+      <p class="hero-sub">CFA Charterholder and wealth management professional supporting ultra-high-net-worth family offices through portfolio reporting, platform implementation, and client servicing.</p>
+      <p class="hero-value">Currently Implementation Manager at Eton Solutions LP, leading AtlasFive® platform deployment for UHNW family offices — building on a foundation of portfolio performance, attribution, and risk reporting experience.</p>
+      <div class="hero-btns">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="resume.pdf" download class="btn btn-ghost">Download Resume</a>
+        <a href="#contact-section" class="btn btn-ghost">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="frame-wrap">
+        <div class="frame-corner corner-tl"></div>
+        <div class="frame-corner corner-br"></div>
+        <div class="portrait-frame">
+          <img src="profile.png" alt="Pramukh KS" class="portrait-photo" style="display:none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none';">
+          <svg class="portrait-silhouette" width="112" height="112" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+          </svg>
+        </div>
+        <div class="frame-side-label">CFA &middot; Bengaluru</div>
+        <div class="frame-caption"><strong>Pramukh KS</strong><br>CFA Charterholder, Bengaluru</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="eyebrow reveal">Profile</div>
+  <h2 class="reveal">About</h2>
+  <div class="reveal-rule"></div>
+  <div class="glass-container reveal">
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a finance professional driven by a passion for numbers, strategic problem-solving, and turning complexity into clarity. Based in Bengaluru, I currently serve as Implementation Manager at Eton Solutions LP, where I specialize in deploying wealth management platforms — merging analytical rigor with technical expertise to design scalable, future-ready solutions for family offices and UHNW clients.</p>
+        <p>As a CFA Charterholder with a BBA in Finance, I'm drawn to dissecting financial ecosystems and architecting systems that streamline operations and eliminate inefficiencies. That curiosity has taken me from Analyst to Senior Analyst to Implementation Manager with Eton Solutions — spanning portfolio performance reporting, attribution analysis, and platform implementation for UHNW family offices.</p>
+        <p>I'm driven by the challenge of turning numbers into narratives and systems into solutions — and I'd welcome the chance to connect on opportunities at the intersection of finance, AI, and wealth management technology.</p>
+      </div>
+      <div class="quick-facts">
+        <div class="fact-card reveal"><div class="fact-label">Industry</div><div class="fact-value">Wealth Management Technology</div></div>
+        <div class="fact-card reveal"><div class="fact-label">Specialization</div><div class="fact-value">UHNW Portfolio Reporting &amp; Implementation</div></div>
+        <div class="fact-card reveal"><div class="fact-label">Current Role</div><div class="fact-value">Implementation Manager, Eton Solutions LP</div></div>
+        <div class="fact-card reveal"><div class="fact-label">Location</div><div class="fact-value">Bengaluru, India</div></div>
+        <div class="fact-card reveal"><div class="fact-label">CFA Status</div><div class="fact-value">Charterholder</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="eyebrow reveal center">By The Numbers</div>
+  <h2 class="reveal center">Impact at a Glance</h2>
+  <div class="reveal-rule center-rule"></div>
+  <div class="stat-grid">
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="10" data-suffix="+">0</div>
+      <div class="stat-label">Family Office Platform Implementations Led</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number" data-prefix="$" data-target="10" data-suffix="B+">0</div>
+      <div class="stat-label">Assets under Administration (AUA) Onboarded</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="45" data-suffix="+">0</div>
+      <div class="stat-label">Client Stakeholders Trained</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="4" data-suffix="+">0</div>
+      <div class="stat-label">Years of Experience</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="eyebrow reveal">Career Journey</div>
+  <h2 class="reveal">Experience</h2>
+  <div class="reveal-rule"></div>
+  <div class="timeline" id="expTimeline">
+    <div class="timeline-line" id="timelineLine"></div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="exp-period">Jul 2021 – Dec 2022</div>
+      <div class="exp-role">Analyst</div>
+      <div class="exp-company">Eton Solutions LP, Bengaluru</div>
+      <div class="exp-desc">Conducted financial analysis for UHNW family portfolios using AtlasFive®, calculating TWRR and MWRR to support investment decisions, performing attribution analysis, and automating recurring client reporting.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="exp-period">Jan 2023 – Aug 2023</div>
+      <div class="exp-role">Senior Analyst</div>
+      <div class="exp-company">Eton Solutions LP, Bengaluru</div>
+      <div class="exp-desc">Led attribution analysis across asset allocation, security selection, and market timing; delivered comprehensive performance and risk reporting for UHNW and family office clients, including foreign currency exposure analysis, while mentoring junior analysts.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="exp-period">Sep 2023 – Present</div>
+      <div class="exp-role">Implementation Manager</div>
+      <div class="exp-company">Eton Solutions LP, Bengaluru</div>
+      <div class="exp-desc">Leading AtlasFive® platform deployment and customization for UHNW family offices — overseeing client onboarding, portfolio reconciliation workflows, and integrated solution design for fund accounting, tax allocations, carried interest, and waterfalls.</div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="eyebrow reveal">Capabilities</div>
+  <h2 class="reveal">Core Expertise</h2>
+  <div class="reveal-rule"></div>
+  <div class="card-grid3">
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="6" y1="20" x2="6" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="14"/></svg></div>
+      <h3>Investment Analysis</h3>
+      <p>Charter-backed expertise in equity analysis, portfolio management, and ethical, rigorous investment decision-making.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+      <h3>UHNW Client Servicing &amp; Onboarding</h3>
+      <p>Leading account setup and onboarding for ultra-high-net-worth family offices, ensuring accurate data migration and platform configuration.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="4 17 10 11 14 15 20 7"/></svg></div>
+      <h3>Portfolio Performance &amp; Attribution</h3>
+      <p>Delivering TWRR/MWRR performance reporting, attribution analysis, and risk metrics that give UHNW clients clarity on portfolio returns.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l9 4.5-9 4.5-9-4.5z"/><path d="M3 11.5l9 4.5 9-4.5"/><path d="M3 16.5l9 4.5 9-4.5"/></svg></div>
+      <h3>Platform Implementation &amp; Change Management</h3>
+      <p>Leading end-to-end platform implementation — translating complex client requirements into scalable, well-adopted technology solutions.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg></div>
+      <h3>Financial Modeling &amp; Valuation</h3>
+      <p>Hands-on experience building financial models for valuation, scenario analysis, and investment decision-making.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" rx="2"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/></svg></div>
+      <h3>Process Automation &amp; Leadership</h3>
+      <p>Driving business process mapping, automation, and cross-functional delivery using JIRA, Monday.com, and Power BI.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="eyebrow reveal">Academics &amp; Credentials</div>
+  <h2 class="reveal center">Education</h2>
+  <div class="reveal-rule center-rule"></div>
+  <div class="cert-grid">
+    <div class="cert-badge reveal">
+      <div class="badge-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="5"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></div>
+      <div class="cert-name">Chartered Financial Analyst (CFA)</div>
+      <div class="cert-status">Charterholder</div>
+      <div class="cert-detail">CFA Institute · Member, CFA Society India</div>
+    </div>
+    <div class="cert-badge reveal">
+      <div class="badge-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <div class="cert-name">Bachelor in Business Administration (BBA), Finance</div>
+      <div class="cert-status">Completed · May 2021</div>
+      <div class="cert-detail">Centre for Management Studies, Jain University · Bengaluru</div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="eyebrow reveal">Credentials, In Detail</div>
+  <h2 class="reveal">Resume</h2>
+  <div class="reveal-rule"></div>
+  <div class="resume-panel reveal">
+    <div class="resume-mock">
+      <div class="rm-name">Pramukh KS</div>
+      <div class="rm-title">CFA CHARTERHOLDER · IMPLEMENTATION MANAGER, ETON SOLUTIONS LP</div>
+      <div class="rm-line accent"></div>
+      <div class="rm-line"></div>
+      <div class="rm-line"></div>
+      <div class="rm-line short"></div>
+      <div class="rm-line accent"></div>
+      <div class="rm-line"></div>
+      <div class="rm-line short"></div>
+    </div>
+    <div class="resume-text">
+      <h3>Full Career Summary</h3>
+      <p>A detailed view of my journey from Analyst to Implementation Manager at Eton Solutions LP, supporting UHNW family offices — along with my CFA Charter and academic background.</p>
+      <a href="resume.pdf" download class="btn btn-primary">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="eyebrow reveal">Rewards &amp; Recognition</div>
+  <h2 class="reveal">Awards</h2>
+  <div class="reveal-rule"></div>
+  <div class="card-grid3">
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M7 5H4a3 3 0 003 3"/><path d="M17 5h3a3 3 0 01-3 3"/></svg></div>
+      <div class="award-year">Q4 2021</div>
+      <h3>Best Newcomer</h3>
+      <div class="award-issuer">Eton Solutions LP</div>
+      <p>Recognized for outstanding performance as a new hire.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M7 5H4a3 3 0 003 3"/><path d="M17 5h3a3 3 0 01-3 3"/></svg></div>
+      <div class="award-year">March 2023</div>
+      <h3>Performer of the Month</h3>
+      <div class="award-issuer">Eton Solutions LP</div>
+      <p>Recognized for outstanding monthly contribution and impact.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M7 5H4a3 3 0 003 3"/><path d="M17 5h3a3 3 0 01-3 3"/></svg></div>
+      <div class="award-year">Q2 2022 · Q1 2024</div>
+      <h3>Performer of the Quarter</h3>
+      <div class="award-issuer">Eton Solutions LP</div>
+      <p>Awarded twice for top quarterly performance across the team.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M7 5H4a3 3 0 003 3"/><path d="M17 5h3a3 3 0 01-3 3"/></svg></div>
+      <div class="award-year">₹1 Lakh Award</div>
+      <h3>AI Prompt-a-thon Winner</h3>
+      <div class="award-issuer">Eton Solutions LP</div>
+      <p>Recognized for developing innovative AI-driven solutions addressing client pain points.</p>
+    </div>
+    <div class="xcard reveal">
+      <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M7 5H4a3 3 0 003 3"/><path d="M17 5h3a3 3 0 01-3 3"/></svg></div>
+      <div class="award-year">₹1 Lakh Award</div>
+      <h3>Certified KingCobra Professional</h3>
+      <div class="award-issuer">Eton Solutions LP</div>
+      <p>Achieved certification and competitive recognition for exceptional proficiency on the AtlasFive® platform.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hobbies">
+  <div class="eyebrow reveal">Beyond Work</div>
+  <h2 class="reveal">Hobbies &amp; Interests</h2>
+  <div class="reveal-rule"></div>
+  <div class="hobby-tags reveal">
+    <span class="hobby-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-11 4 7 3-5 6 9"/><path d="M3 20h18"/></svg>Trekking &amp; Hiking</span>
+    <span class="hobby-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c2-1 5-1 7 0v14c-2-1-5-1-7 0z"/><path d="M21 5c-2-1-5-1-7 0v14c2-1 5-1 7 0z"/></svg>Reading</span>
+    <span class="hobby-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="2"/><circle cx="12" cy="12" r="3"/></svg>Playing the Caj&oacute;n</span>
+    <span class="hobby-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/></svg>Technology Exploration</span>
+    <span class="hobby-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 14 15 20 7"/></svg>Investing &amp; Financial Markets</span>
+    <span class="hobby-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg>Listening to Music</span>
+  </div>
+</section>
+
+<section id="contact-section">
+  <div class="contact-bg"></div>
+  <div class="contact-particles"><canvas id="contactCanvas" style="width:100%;height:100%;"></canvas></div>
+  <div class="contact-inner">
+    <div class="eyebrow reveal center">Get In Touch</div>
+    <h2 class="reveal center">Let's Connect</h2>
+    <div class="reveal-rule center-rule"></div>
+    <p class="reveal">Whether you're hiring for a wealth management or fintech leadership role, exploring a partnership, or just want to talk markets — I'd love to hear from you.</p>
+    <p class="contact-direct reveal"><span class="contact-email">pramukhks6@gmail.com</span><span class="contact-sep">&nbsp;·&nbsp;</span><span class="contact-phone">+91 88672 72507</span></p>
+    <div class="contact-links reveal">
+      <a href="mailto:pramukhks6@gmail.com" target="_blank" class="btn btn-primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/pramukh-ks-cfa-152862205" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="resume.pdf" download class="btn btn-ghost">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Pramukh KS. Wealth Management Technology.</footer>
+
+<div id="printResume">
+  <h1>Pramukh KS, CFA</h1>
+  <div class="pr-contact">Bengaluru, Karnataka, India &nbsp;|&nbsp; (+91) 88672 72507 &nbsp;|&nbsp; pramukhks6@gmail.com</div>
+  <p>CFA Charterholder and wealth management professional with proven experience supporting ultra-high-net-worth (UHNW) clients across portfolio onboarding, investment reporting, and account servicing. Skilled in delivering high-quality client and advisor support through data-driven performance analysis, risk and attribution reporting, and operational process enhancement.</p>
+
+  <h2>Professional Experience</h2>
+  <div class="pr-role">Implementation Manager — Eton Solutions LP</div>
+  <div class="pr-meta">Bengaluru &middot; September 2023 – Present</div>
+  <ul>
+    <li>Leading deployment and customization of AtlasFive® for clients through rigorous fact-finding, tailoring platform functionality to investment decision-making and performance measurement.</li>
+    <li>Overseeing client onboarding and account setup for UHNW family offices, ensuring accurate migration of investment data, asset classifications, and account hierarchies.</li>
+    <li>Partnering with operations teams to deliver portfolio performance, attribution, and risk reporting.</li>
+    <li>Implementing customized workflows for capital activity, cash flow monitoring, and portfolio reconciliation.</li>
+    <li>Providing integrated solution designs for fund accounting and allocations modules — tax allocations, carried interest, and waterfalls.</li>
+    <li>Collaborating cross-functionally using Monday.com and JIRA to track deliverables and service milestones.</li>
+  </ul>
+
+  <div class="pr-role">Senior Analyst — Eton Solutions LP</div>
+  <div class="pr-meta">Bengaluru &middot; January 2023 – August 2023</div>
+  <ul>
+    <li>Led attribution analysis evaluating sources of portfolio performance — asset allocation, security selection, and market timing.</li>
+    <li>Delivered comprehensive portfolio and performance reporting for UHNW and family office clients, including TWR/MWR, benchmarks, and risk metrics.</li>
+    <li>Conducted in-depth analysis on complex allocation structures and optimized reporting across diverse asset classes.</li>
+    <li>Reported on foreign currency exposure, integrating currency-adjusted returns and volatility metrics.</li>
+    <li>Mentored junior analysts in financial analysis, performance reporting, and operational processes.</li>
+  </ul>
+
+  <div class="pr-role">Analyst — Eton Solutions LP</div>
+  <div class="pr-meta">Bengaluru &middot; July 2021 – December 2022</div>
+  <ul>
+    <li>Conducted detailed financial analysis for UHNW family portfolios using AtlasFive, calculating TWRR and MWRR to support investment decisions.</li>
+    <li>Performed attribution analysis assessing the contributions of asset allocation, security selection, and timing.</li>
+    <li>Provided data-driven reports and refined reporting frameworks alongside senior analysts and clients.</li>
+    <li>Contributed to process improvement, automating recurring reporting and enhancing turnaround time.</li>
+  </ul>
+
+  <h2>Education</h2>
+  <p>Bachelor in Business Administration (BBA), Centre for Management Studies – Jain University (concentration: Finance), Bengaluru — May 2021<br>
+  Chartered Financial Analyst (CFA), CFA Institute, Member of CFA Society India</p>
+
+  <h2>Skills</h2>
+  <p class="pr-skills">Project Management &amp; Governance &middot; Cross-Functional Team Leadership &middot; UHNW Client Management &middot; Client Onboarding &amp; Account Servicing &middot; Portfolio Performance Reporting &middot; Financial Modeling &amp; Valuation &middot; Investor Presentation &amp; Communication &middot; Advisor Support Functions &middot; Business Process Mapping &amp; Automation &middot; MS Office, Power BI, Monday.com, JIRA</p>
+
+  <h2>Achievements</h2>
+  <ul>
+    <li>"Best Newcomer," Q4 2021 — Eton Solutions LP</li>
+    <li>"Performer of the Quarter," Q2 2022 &amp; Q1 2024 — Eton Solutions LP</li>
+    <li>"Performer of the Month," March 2023 — Eton Solutions LP</li>
+    <li>Winner, AI Prompt-a-thon (₹1 Lakh Award) — Eton Solutions LP</li>
+    <li>Certified KingCobra Professional (₹1 Lakh Award) — Eton Solutions LP</li>
+  </ul>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nlink').forEach(l=>l.addEventListener('click', ()=> navLinks.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal, .reveal-rule').forEach(el=>io.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nlink');
+  const navObs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        navAnchors.forEach(a=>a.classList.remove('active'));
+        const match = document.querySelector(`.nlink[href="#${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  sections.forEach(s=>navObs.observe(s));
+
+  const timelineLine = document.getElementById('timelineLine');
+  const expTimeline = document.getElementById('expTimeline');
+  const timelineObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ timelineLine.classList.add('visible'); timelineObs.disconnect(); }
+    });
+  }, {threshold:0.15});
+  timelineObs.observe(expTimeline);
+
+  const impactSection = document.getElementById('impact');
+  const statObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        document.querySelectorAll('.stat-number').forEach(el=>{
+          const target = parseFloat(el.dataset.target);
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          const duration = 1400;
+          const start = performance.now();
+          function tick(now){
+            const p = Math.min((now-start)/duration,1);
+            const eased = 1-Math.pow(1-p,3);
+            el.textContent = prefix + Math.round(target*eased) + suffix;
+            if(p<1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+        statObs.disconnect();
+      }
+    });
+  }, {threshold:0.3});
+  if(impactSection) statObs.observe(impactSection);
+
+  const heroBg = document.getElementById('heroBg');
+  const mainNav = document.getElementById('mainNav');
+  const scrollProgress = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', ()=>{
+    const y = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    scrollProgress.style.width = (docH>0 ? (y/docH)*100 : 0) + '%';
+    mainNav.classList.toggle('scrolled', y > 40);
+    if(y < window.innerHeight){
+      heroBg.style.transform = `translateY(${y*0.08}px)`;
+    }
+  }, {passive:true});
+
+  const canvas = document.getElementById('contactCanvas');
+  const ctx = canvas.getContext('2d');
+  let w,h,particles;
+  function resize(){
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  function initP(){
+    const count = Math.min(26, Math.floor(w/40));
+    particles = Array.from({length:count}, ()=>({
+      x:Math.random()*w, y:Math.random()*h,
+      vx:(Math.random()-0.5)*0.1, vy:(Math.random()-0.5)*0.1, r:Math.random()*1.4+0.6
+    }));
+  }
+  function animate(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w) p.vx*=-1;
+      if(p.y<0||p.y>h) p.vy*=-1;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(22,35,63,0.18)';
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  resize(); initP(); animate();
+</script>
+
+</body>
+</html>
